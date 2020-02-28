@@ -147,7 +147,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/plus"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="-"
             />
 
@@ -156,7 +156,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/minus"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="/"
             />
 
@@ -165,7 +165,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/division"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="*"
             />
 
@@ -174,7 +174,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/multiply"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="="
             />
 

@@ -41,6 +41,12 @@ class MainActivity : AppCompatActivity() {
             var btn = iter.next()
             btn.setOnClickListener { workOrder.add(buttonValue.get(btn)) }
         }
+
+        result.setOnClickListener{
+            if(!workOrder.isEmpty()){
+                calculateLogic()
+            }
+        }
     }
     
     //Class로 뺄 것
@@ -48,5 +54,6 @@ class MainActivity : AppCompatActivity() {
         /*
         " = " 이 눌린 순간 (setOnclick으로 할당) 계산을 해서 반환
          */
+        numberView.text = "How can do it Append"
     }
 }
