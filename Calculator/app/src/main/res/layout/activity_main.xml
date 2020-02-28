@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/numberView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:text="NumberView"
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:id="@+id/numberPad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numberView"
+        android:layout_marginTop="50dp">
+
+       <RelativeLayout
+            android:id="@+id/line1to3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/num_1"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/num_2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_toEndOf="@id/num_1"
+                android:layout_marginStart="50dp"
+                />
+
+            <Button
+                android:id="@+id/num_3"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_toEndOf="@id/num_2"
+                android:layout_marginStart="50dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/line4to6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1to3"
+            android:layout_marginTop="50dp"
+            >
+            <Button
+                android:id="@+id/num_4"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/num_5"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:layout_toEndOf="@id/num_4"
+                android:layout_marginStart="50dp"
+                />
+
+            <Button
+                android:id="@+id/num_6"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:layout_toEndOf="@id/num_5"
+                android:layout_marginStart="50dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/line7to9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line4to6"
+            android:layout_marginTop="50dp"
+            >
+            <Button
+                android:id="@+id/num_7"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/num_8"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:layout_toEndOf="@id/num_7"
+                android:layout_marginStart="50dp"
+                />
+
+            <Button
+                android:id="@+id/num_9"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:layout_toEndOf="@id/num_8"
+                android:layout_marginStart="50dp"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/num_0"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line7to9"
+            android:layout_marginTop="50dp"
+            android:text="0"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/featurePad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/numberPad"
+        android:layout_below="@id/numberView"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        >
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/plus"
+            android:layout_marginTop="50dp"
+            android:text="-"
+            />
+
+        <Button
+            android:id="@+id/division"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minus"
+            android:layout_marginTop="50dp"
+            android:text="/"
+            />
+
+        <Button
+            android:id="@+id/multiply"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/division"
+            android:layout_marginTop="50dp"
+            android:text="*"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
