@@ -169,6 +169,15 @@
             android:text="*"
             />
 
+        <Button
+            android:id="@+id/result"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/multiply"
+            android:layout_marginTop="50dp"
+            android:text="="
+            />
+
     </RelativeLayout>
 
 
