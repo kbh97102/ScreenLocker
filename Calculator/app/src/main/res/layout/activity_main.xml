@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/numberView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
-        android:text="NumberView"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:maxLines="2"
+        android:lines="1"
+        android:hint="Sequence"
+        />
 
     <RelativeLayout
         android:id="@+id/numberPad"

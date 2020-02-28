@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
     private var workOrder: PriorityQueue<String> = PriorityQueue()
     private var buttonValue: HashMap<Button, String> = hashMapOf()
+    private var features : List<String> = arrayListOf("+","-","/","*")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,13 @@ class MainActivity : AppCompatActivity() {
         var iter : Iterator<Button> = buttonValue.keys.iterator()
         while(iter.hasNext()){
             var btn = iter.next()
-            btn.setOnClickListener { workOrder.add(buttonValue.get(btn)) }
+            btn.setOnClickListener {
+                workOrder.add(buttonValue.get(btn))
+                if(btn.isPressed){
+                    numberView.text.append(buttonValue.get(btn))
+                    println("Presssed")
+                }
+            }
         }
 
         result.setOnClickListener{
@@ -49,11 +57,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-    //Class로 뺄 것
+    //Class로 빼는게 깔끔할려나
     private fun calculateLogic(){
         /*
         " = " 이 눌린 순간 (setOnclick으로 할당) 계산을 해서 반환
          */
-        numberView.text = "How can do it Append"
+        var numberA = emptyArray<String>()
+        var iter = workOrder.iterator()
+        while(iter.hasNext()){
+            var test:String = iter.next()
+            if(features.contains(test)){
+                // make next Int
+            }
+            else{
+                numberA.plus(test)
+            }
+
+
+        }
+
     }
 }
