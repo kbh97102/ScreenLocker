@@ -1,80 +1,119 @@
 package com.example.calcultor
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
-    private var workOrder: PriorityQueue<String> = PriorityQueue()
-    private var buttonValue: HashMap<Button, String> = hashMapOf()
-    private var features : List<String> = arrayListOf("+","-","/","*")
+    private var numberValue: HashMap<Button, String> = hashMapOf()
+    private var featureValue: HashMap<Button, String> = hashMapOf()
+    private var firstNumber = 0
+    private var secondNumber = 0
+    private var results: Int = 0
+    private var isFirstFilled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         initializeButtonValue()
         setButtonEvent()
+        setTextChangeListener()
+
+        /*
+       키보드 숨기기
+       https://sharp57dev.tistory.com/15
+        */
+        var imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(firstNumberView.windowToken, 0)
+        imm.hideSoftInputFromWindow(secondNumberView.windowToken, 0)
+
+
     }
 
     private fun initializeButtonValue() {
-        buttonValue.put(num_0, "0")
-        buttonValue.put(num_1, "1")
-        buttonValue.put(num_2, "2")
-        buttonValue.put(num_3, "3")
-        buttonValue.put(num_4, "4")
-        buttonValue.put(num_5, "5")
-        buttonValue.put(num_6, "6")
-        buttonValue.put(num_7, "7")
-        buttonValue.put(num_8, "8")
-        buttonValue.put(num_9, "9")
-        buttonValue.put(plus, "+")
-        buttonValue.put(minus, "-")
-        buttonValue.put(division, "/")
-        buttonValue.put(multiply, "*")
+        numberValue.put(num_0, "0")
+        numberValue.put(num_1, "1")
+        numberValue.put(num_2, "2")
+        numberValue.put(num_3, "3")
+        numberValue.put(num_4, "4")
+        numberValue.put(num_5, "5")
+        numberValue.put(num_6, "6")
+        numberValue.put(num_7, "7")
+        numberValue.put(num_8, "8")
+        numberValue.put(num_9, "9")
+        featureValue[plus] = "+"
+        featureValue[minus] = "-"
+        featureValue[division] = "/"
+        featureValue[multiply] = "*"
     }
 
     private fun setButtonEvent() {
-        var iter : Iterator<Button> = buttonValue.keys.iterator()
-        while(iter.hasNext()){
+        var iter: Iterator<Button> = numberValue.keys.iterator()
+        while (iter.hasNext()) {
             var btn = iter.next()
             btn.setOnClickListener {
-                workOrder.add(buttonValue.get(btn))
-                if(btn.isPressed){
-                    numberView.text.append(buttonValue.get(btn))
-                    println("Presssed")
+                when(isFirstFilled){
+                    true -> setSecondButtonEvent(btn)
+                    false -> setFirstButtonEvent(btn)
                 }
             }
         }
-
-        result.setOnClickListener{
-            if(!workOrder.isEmpty()){
-                calculateLogic()
-            }
-        }
+        result.setOnClickListener { calculateLogic() }
     }
-    
-    //Class로 빼는게 깔끔할려나
-    private fun calculateLogic(){
-        /*
-        " = " 이 눌린 순간 (setOnclick으로 할당) 계산을 해서 반환
-         */
-        var numberA = emptyArray<String>()
-        var iter = workOrder.iterator()
-        while(iter.hasNext()){
-            var test:String = iter.next()
-            if(features.contains(test)){
-                // make next Int
-            }
-            else{
-                numberA.plus(test)
-            }
 
-
-        }
-
+    private fun setFirstButtonEvent(btn : Button){
+        firstNumber = numberValue[btn]!!.toInt()
+        firstNumberView.setText(numberValue[btn])
     }
+
+    private fun setSecondButtonEvent(btn : Button){
+        secondNumber =  numberValue[btn]!!.toInt()
+        secondNumberView.setText(numberValue[btn])
+    }
+
+    private fun calculateLogic() {
+        results = firstNumber + secondNumber
+
+        firstNumberView.setText(results.toString())
+        secondNumberView.setText("")
+        isFirstFilled = false
+    }
+
+    private fun setTextChangeListener(){
+        firstNumberView.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                isFirstFilled = true
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        secondNumberView.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                isFirstFilled = false
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+    }
+
+
+
 }
