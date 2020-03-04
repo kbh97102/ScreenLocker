@@ -8,26 +8,23 @@
 
 
     <EditText
-        android:id="@+id/firstNumberView"
+        android:id="@+id/processView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/numberView"
+        android:hint="processViewer"
+        android:textSize="10sp"
+        />
+
+    <EditText
+        android:id="@+id/numberView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_marginTop="30dp"
         android:textSize="30sp"
         android:maxLines="2"
         android:lines="1"
-        android:hint="number One"
-        android:inputType="number"
-        />
-
-    <EditText
-        android:id="@+id/secondNumberView"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_below="@+id/firstNumberView"
-        android:hint="number two"
-        android:textSize="30sp"
-        android:maxLines="2"
-        android:lines="1"
+        android:hint="Insert Number"
         android:inputType="number"
         />
 
@@ -35,7 +32,7 @@
         android:id="@+id/numberPad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/secondNumberView"
+        android:layout_below="@id/numberView"
         android:layout_marginTop="50dp">
 
        <RelativeLayout
@@ -148,7 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/numberPad"
-        android:layout_below="@id/secondNumberView"
+        android:layout_below="@id/numberView"
         android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
         >
@@ -184,6 +181,15 @@
             android:layout_below="@id/division"
             android:layout_marginTop="20dp"
             android:text="*"
+            />
+
+        <Button
+            android:id="@+id/equal"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/multiply"
+            android:layout_marginTop="20dp"
+            android:text="="
             />
 
     </RelativeLayout>

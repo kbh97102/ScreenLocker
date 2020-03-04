@@ -8,13 +8,15 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
-    private var numberValue: HashMap<Button, String> = hashMapOf()
+    private var numberValue: HashMap<Button, Int> = hashMapOf()
     private var firstNumber = 0
     private var secondNumber = 0
-    private var isFirstFilled = false
+    private var currentFeature: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,90 +24,65 @@ class MainActivity : AppCompatActivity() {
 
         initializeButtonValue()
         setButtonEvent()
-        setTextChangeListener()
 
-        var imm: InputMethodManager =
+        val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(firstNumberView.windowToken, 0)
-        imm.hideSoftInputFromWindow(secondNumberView.windowToken, 0)
+        imm.hideSoftInputFromWindow(numberView.windowToken, 0)
     }
 
     private fun initializeButtonValue() {
-        numberValue.put(num_0, "0")
-        numberValue.put(num_1, "1")
-        numberValue.put(num_2, "2")
-        numberValue.put(num_3, "3")
-        numberValue.put(num_4, "4")
-        numberValue.put(num_5, "5")
-        numberValue.put(num_6, "6")
-        numberValue.put(num_7, "7")
-        numberValue.put(num_8, "8")
-        numberValue.put(num_9, "9")
+        numberValue.put(num_0, 0)
+        numberValue.put(num_1, 1)
+        numberValue.put(num_2, 2)
+        numberValue.put(num_3, 3)
+        numberValue.put(num_4, 4)
+        numberValue.put(num_5, 5)
+        numberValue.put(num_6, 6)
+        numberValue.put(num_7, 7)
+        numberValue.put(num_8, 8)
+        numberValue.put(num_9, 9)
     }
 
     private fun setButtonEvent() {
-        var iter: Iterator<Button> = numberValue.keys.iterator()
+        val iter: Iterator<Button> = numberValue.keys.iterator()
         while (iter.hasNext()) {
-            var btn = iter.next()
+            val btn = iter.next()
             btn.setOnClickListener {
-                when (isFirstFilled) {
-                    true -> setSecondButtonEvent(btn)
-                    false -> setFirstButtonEvent(btn)
-                }
+                setNumberButtonEvent(btn)
             }
         }
-        plus.setOnClickListener { calculate(plus) }
-        minus.setOnClickListener { calculate(minus) }
-        division.setOnClickListener { calculate(division) }
-        multiply.setOnClickListener { calculate(multiply) }
+        plus.setOnClickListener { currentFeature = plus }
+        minus.setOnClickListener { currentFeature = minus }
+        division.setOnClickListener { currentFeature = division }
+        multiply.setOnClickListener { currentFeature = multiply }
+        equal.setOnClickListener { calculate() }
     }
 
-    private fun setFirstButtonEvent(btn: Button) {
-        firstNumber = numberValue[btn]!!.toInt()
-        firstNumberView.setText(numberValue[btn])
+    private fun setNumberButtonEvent(btn: Button) {
+        if(firstNumber == 0){
+            firstNumber = numberValue[btn]!!
+            numberView.setText(firstNumber.toString())
+        }
+        else{
+            secondNumber = numberValue[btn]!!
+            numberView.setText(secondNumber.toString())
+        }
     }
 
-    private fun setSecondButtonEvent(btn: Button) {
-        secondNumber = numberValue[btn]!!.toInt()
-        secondNumberView.setText(numberValue[btn])
-    }
-
-    private fun calculate(btn: Button) {
-        var calculateResult: Int = 0;
-        when (btn) {
+    private fun calculate() {
+        if (firstNumber == 0 || secondNumber == 0 || Objects.isNull(currentFeature)){
+            return
+        }
+        var calculateResult = 0
+        when (currentFeature) {
             plus -> calculateResult = firstNumber + secondNumber
             minus -> calculateResult = firstNumber - secondNumber
-            division -> calculateResult = (firstNumber / secondNumber).toInt()
+            division -> calculateResult = (firstNumber / secondNumber)
             multiply -> calculateResult = firstNumber * secondNumber
         }
-        firstNumberView.setText(calculateResult.toString())
-        secondNumberView.setText("")
-        isFirstFilled = false
+        numberView.setText(calculateResult.toString())
+        firstNumber = calculateResult
+        secondNumber = 0
     }
 
-    private fun setTextChangeListener() {
-        firstNumberView.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                isFirstFilled = true
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
-
-        secondNumberView.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                isFirstFilled = false
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
-    }
 }
