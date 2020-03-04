@@ -1,14 +1,13 @@
 package com.example.calcultor
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,16 +26,10 @@ class MainActivity : AppCompatActivity() {
         setButtonEvent()
         setTextChangeListener()
 
-        /*
-       키보드 숨기기
-       https://sharp57dev.tistory.com/15
-        */
         var imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(firstNumberView.windowToken, 0)
         imm.hideSoftInputFromWindow(secondNumberView.windowToken, 0)
-
-
     }
 
     private fun initializeButtonValue() {
@@ -61,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         while (iter.hasNext()) {
             var btn = iter.next()
             btn.setOnClickListener {
-                when(isFirstFilled){
+                when (isFirstFilled) {
                     true -> setSecondButtonEvent(btn)
                     false -> setFirstButtonEvent(btn)
                 }
@@ -70,13 +63,13 @@ class MainActivity : AppCompatActivity() {
         result.setOnClickListener { calculateLogic() }
     }
 
-    private fun setFirstButtonEvent(btn : Button){
+    private fun setFirstButtonEvent(btn: Button) {
         firstNumber = numberValue[btn]!!.toInt()
         firstNumberView.setText(numberValue[btn])
     }
 
-    private fun setSecondButtonEvent(btn : Button){
-        secondNumber =  numberValue[btn]!!.toInt()
+    private fun setSecondButtonEvent(btn: Button) {
+        secondNumber = numberValue[btn]!!.toInt()
         secondNumberView.setText(numberValue[btn])
     }
 
@@ -88,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         isFirstFilled = false
     }
 
-    private fun setTextChangeListener(){
+    private fun setTextChangeListener() {
         firstNumberView.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 isFirstFilled = true
@@ -113,7 +106,4 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
-
-
 }
