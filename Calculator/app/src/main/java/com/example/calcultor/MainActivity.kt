@@ -12,10 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var numberValue: HashMap<Button, String> = hashMapOf()
-    private var featureValue: HashMap<Button, String> = hashMapOf()
     private var firstNumber = 0
     private var secondNumber = 0
-    private var results: Int = 0
     private var isFirstFilled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +41,6 @@ class MainActivity : AppCompatActivity() {
         numberValue.put(num_7, "7")
         numberValue.put(num_8, "8")
         numberValue.put(num_9, "9")
-        featureValue[plus] = "+"
-        featureValue[minus] = "-"
-        featureValue[division] = "/"
-        featureValue[multiply] = "*"
     }
 
     private fun setButtonEvent() {
@@ -60,7 +54,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        result.setOnClickListener { calculateLogic() }
+        plus.setOnClickListener { calculate(plus) }
+        minus.setOnClickListener { calculate(minus) }
+        division.setOnClickListener { calculate(division) }
+        multiply.setOnClickListener { calculate(multiply) }
     }
 
     private fun setFirstButtonEvent(btn: Button) {
@@ -73,10 +70,15 @@ class MainActivity : AppCompatActivity() {
         secondNumberView.setText(numberValue[btn])
     }
 
-    private fun calculateLogic() {
-        results = firstNumber + secondNumber
-
-        firstNumberView.setText(results.toString())
+    private fun calculate(btn: Button) {
+        var calculateResult: Int = 0;
+        when (btn) {
+            plus -> calculateResult = firstNumber + secondNumber
+            minus -> calculateResult = firstNumber - secondNumber
+            division -> calculateResult = (firstNumber / secondNumber).toInt()
+            multiply -> calculateResult = firstNumber * secondNumber
+        }
+        firstNumberView.setText(calculateResult.toString())
         secondNumberView.setText("")
         isFirstFilled = false
     }
