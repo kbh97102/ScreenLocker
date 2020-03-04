@@ -8,15 +8,6 @@
 
 
     <EditText
-        android:id="@+id/processView"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/numberView"
-        android:hint="processViewer"
-        android:textSize="10sp"
-        />
-
-    <EditText
         android:id="@+id/numberView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -28,11 +19,22 @@
         android:inputType="number"
         />
 
+    <TextView
+        android:id="@+id/processView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/numberView"
+        android:hint="processViewer"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        tools:ignore="RtlHardcoded,SmallSp" />
+
     <RelativeLayout
         android:id="@+id/numberPad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/numberView"
+        android:layout_below="@id/processView"
         android:layout_marginTop="50dp">
 
        <RelativeLayout
@@ -145,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/numberPad"
-        android:layout_below="@id/numberView"
+        android:layout_below="@id/processView"
         android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
         >
