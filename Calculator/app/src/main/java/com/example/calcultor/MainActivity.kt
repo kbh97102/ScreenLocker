@@ -1,5 +1,6 @@
 package com.example.calcultor
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initializeButtonValue()
-        setButtonEvent()
+        setFeatureButtonEvent()
 
         val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         numberValue.put(num_9, 9)
     }
 
-    private fun setButtonEvent() {
+    private fun setFeatureButtonEvent() {
         val iter: Iterator<Button> = numberValue.keys.iterator()
         while (iter.hasNext()) {
             val btn = iter.next()
@@ -59,7 +60,10 @@ class MainActivity : AppCompatActivity() {
         minus.setOnClickListener { setFeatureEvent(minus) }
         division.setOnClickListener { setFeatureEvent(division) }
         multiply.setOnClickListener { setFeatureEvent(multiply) }
+        remainder.setOnClickListener { setFeatureEvent(remainder) }
         equal.setOnClickListener { calculate2() }
+        squared.setOnClickListener { getSquared() }
+        clear.setOnClickListener { clear() }
     }
 
     private fun setNumberButtonEvent(btn: Button) {
@@ -111,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             minus -> calculateResult = firstNumber - secondNumber
             division -> calculateResult = (firstNumber / secondNumber)
             multiply -> calculateResult = firstNumber * secondNumber
+
         }
         numberView.setText(calculateResult.toString())
         firstNumber = calculateResult
@@ -130,6 +135,7 @@ class MainActivity : AppCompatActivity() {
             minus -> calculateResult = firstNumber2.toInt() - secondNumber2.toInt()
             division -> calculateResult = firstNumber2.toInt() / secondNumber2.toInt()
             multiply -> calculateResult = firstNumber2.toInt() * secondNumber2.toInt()
+            remainder -> calculateResult = firstNumber2.toInt() % secondNumber2.toInt()
         }
         numberView.setText(calculateResult.toString())
         processView.append("=")
@@ -137,5 +143,27 @@ class MainActivity : AppCompatActivity() {
         firstNumber2 = calculateResult.toString()
         secondNumber2 = ""
         digit = 0
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun getSquared() {
+        isFirstFilled = true
+        if (!Objects.isNull(firstNumber2)) {
+            processView.text = "sqr($firstNumber2)"
+            firstNumber2 = firstNumber2.toDouble().pow(2.0).toInt().toString()
+            numberView.setText(firstNumber2)
+        }
+    }
+
+    private fun undo() {
+
+    }
+
+    private fun clear() {
+        isFirstFilled = false
+        firstNumber2 = ""
+        secondNumber2 = ""
+        numberView.text.clear()
+        processView.text = ""
     }
 }
