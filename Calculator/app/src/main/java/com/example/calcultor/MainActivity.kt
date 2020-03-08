@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import kotlin.collections.HashMap
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -153,10 +152,6 @@ class MainActivity : AppCompatActivity() {
             firstNumber2 = firstNumber2.toDouble().pow(2.0).toInt().toString()
             numberView.setText(firstNumber2)
         }
-    }
-
-    private fun undo() {
-
     }
 
     private fun clear() {

@@ -175,16 +175,35 @@
         <TableRow>
 
             <Button
+                android:id="@+id/plus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:text="+"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/minus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:text="-"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
                 android:id="@+id/division"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
                 android:text="/"
                 android:textSize="30sp" />
 
             <Button
                 android:id="@+id/multiply"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
                 android:text="*"
                 android:textSize="30sp" />
         </TableRow>
@@ -194,19 +213,19 @@
             <Button
                 android:id="@+id/equal"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:text="="
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
 
             <Button
                 android:id="@+id/root"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:text="R"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow>
@@ -214,18 +233,18 @@
             <Button
                 android:id="@+id/remainder"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/remainderText"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/squared"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:text="^"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow>
@@ -233,18 +252,11 @@
             <Button
                 android:id="@+id/clear"
                 android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:text="AC"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
-            <Button
-                android:id="@+id/undo"
-                android:layout_width="50dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="5dp"
-                android:text="D"
-                android:textSize="30sp"/>
         </TableRow>
 
     </TableLayout>
