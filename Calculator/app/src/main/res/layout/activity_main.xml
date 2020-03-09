@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".MainActivity">
 
 
@@ -11,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_marginTop="30dp"
+        android:background="@android:color/darker_gray"
         android:hint="Insert Number"
         android:inputType="number"
         android:lines="1"
@@ -44,7 +46,9 @@
                 android:id="@+id/num_1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="1"
                 android:textSize="30sp" />
 
@@ -52,7 +56,9 @@
                 android:id="@+id/num_2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="2"
                 android:textSize="30sp" />
 
@@ -60,7 +66,9 @@
                 android:id="@+id/num_3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="3"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -76,7 +84,9 @@
                 android:id="@+id/num_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="4"
                 android:textSize="30sp" />
 
@@ -84,7 +94,9 @@
                 android:id="@+id/num_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="5"
                 android:textSize="30sp" />
 
@@ -92,7 +104,9 @@
                 android:id="@+id/num_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="6"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -108,7 +122,9 @@
                 android:id="@+id/num_7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="7"
                 android:textSize="30sp" />
 
@@ -116,7 +132,9 @@
                 android:id="@+id/num_8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="8"
                 android:textSize="30sp" />
 
@@ -124,7 +142,9 @@
                 android:id="@+id/num_9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="9"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -141,13 +161,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
-                android:background="@android:color/white" />
+                android:background="@android:color/background_dark" />
 
             <Button
                 android:id="@+id/num_0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0.3"
+                android:background="@drawable/button_background"
                 android:text="0"
                 android:textSize="30sp" />
 
@@ -155,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
-                android:background="@android:color/white" />
+                android:background="@android:color/background_dark" />
 
         </LinearLayout>
 
@@ -177,6 +199,8 @@
                 android:id="@+id/plus"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="+"
                 android:textSize="30sp" />
 
@@ -184,6 +208,7 @@
                 android:id="@+id/minus"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:background="@drawable/button_background"
                 android:text="-"
                 android:textSize="30sp" />
         </TableRow>
@@ -195,6 +220,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="/"
                 android:textSize="30sp" />
 
@@ -203,6 +230,7 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/button_background"
                 android:text="*"
                 android:textSize="30sp" />
         </TableRow>
@@ -214,6 +242,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="="
                 android:textSize="30sp" />
 
@@ -223,6 +253,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="R"
                 android:textSize="30sp" />
         </TableRow>
@@ -234,6 +266,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="@string/remainderText"
                 android:textSize="30sp" />
 
@@ -242,6 +276,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="^"
                 android:textSize="30sp" />
         </TableRow>
@@ -253,6 +289,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:text="AC"
                 android:textSize="30sp" />
 

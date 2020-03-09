@@ -10,6 +10,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.math.pow
 
+//TODO process 꽉차면 초기화 되게끔 -> 함수로 빼야 할듯
+//TODO 디자인 수정
+
 class MainActivity : AppCompatActivity() {
 
     private var numberValue: HashMap<Button, Int> = hashMapOf()
