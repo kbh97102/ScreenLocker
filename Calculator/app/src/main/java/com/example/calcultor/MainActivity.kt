@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.math.pow
+import kotlin.math.sqrt
 
 //TODO process 꽉차면 초기화 되게끔 -> 함수로 빼야 할듯
 //TODO 디자인 수정
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         equal.setOnClickListener { calculate2() }
         squared.setOnClickListener { getSquared() }
         clear.setOnClickListener { clear() }
+        root.setOnClickListener { root() }
     }
 
     private fun setNumberButtonEvent(btn: Button) {
@@ -163,5 +165,12 @@ class MainActivity : AppCompatActivity() {
         secondNumber2 = ""
         numberView.text.clear()
         processView.text = ""
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun root(){
+        processView.text = "sqrt($firstNumber2)"
+        firstNumber2 = (sqrt(firstNumber2.toDouble())).toInt().toString()
+        numberView.setText(firstNumber2)
     }
 }
