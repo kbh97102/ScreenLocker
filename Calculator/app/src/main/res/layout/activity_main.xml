@@ -28,7 +28,8 @@
         android:gravity="right"
         android:hint="processViewer"
         android:textSize="20sp"
-        tools:ignore="RtlHardcoded,SmallSp" />
+        tools:ignore="RtlHardcoded,SmallSp"
+        android:background="@android:color/darker_gray"/>
 
     <RelativeLayout
         android:id="@+id/numberPad"
