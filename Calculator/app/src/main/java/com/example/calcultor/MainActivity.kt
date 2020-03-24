@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun root(){
+    private fun root() {
         processView.text = "sqrt($firstNumber2)"
         firstNumber2 = (sqrt(firstNumber2.toDouble())).toInt().toString()
         numberView.setText(firstNumber2)
