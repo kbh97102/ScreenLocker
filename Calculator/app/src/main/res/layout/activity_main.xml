@@ -25,11 +25,11 @@
         android:layout_height="30dp"
         android:layout_below="@+id/numberView"
         android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
         android:gravity="right"
         android:hint="processViewer"
         android:textSize="20sp"
-        tools:ignore="RtlHardcoded,SmallSp"
-        android:background="@android:color/darker_gray"/>
+        tools:ignore="RtlHardcoded,SmallSp" />
 
     <RelativeLayout
         android:id="@+id/numberPad"
