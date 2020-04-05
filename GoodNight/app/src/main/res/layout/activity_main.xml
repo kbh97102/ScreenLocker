@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/remainTime"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="RemainTime"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/setTime"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remainTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:digits="1234567890"
+        android:hint="Set time to sleep"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="GoodNight" />
+
+    <Button
+        android:id="@+id/lock"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Lock the Phone" />
+
+    <Button
+        android:id="@+id/enableBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lock"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Enable" />
+
+    <Button
+        android:id="@+id/disableBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enableBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Disable" />
+
+    <SeekBar
+        android:id="@+id/brightSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/disableBtn"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:progress="50"
+        />
+</RelativeLayout>
